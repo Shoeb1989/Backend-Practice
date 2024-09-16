@@ -1,5 +1,5 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useRef, useState } from 'react';
 import auth from '../../Firebase/Firebase.config';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,10 @@ const Login = () => {
 
     const [registererror, setRegistererror] = useState('');
     const [success, setSuccess] = useState('');
+
+    // forget pass useref
+
+    const emailRef = useRef(null);
 
 
 
@@ -39,8 +43,30 @@ const Login = () => {
     }
 
 
-    const handleForgetPass = e => {
-        console.log('send reset pass')
+    const handleForgetPass = () => {
+        const email = emailRef.current.value;
+        if (!email){
+
+            console.log('Please Provied Email', emailRef.current.value)
+            return;
+        }
+
+        else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
+        {
+            console.log('please write a valid email')
+        }
+
+        // send validation email
+
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert('please check your email')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+             
+        
 
     }
 
@@ -62,7 +88,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name='email' className="input input-bordered" required />
+                            <input 
+                            type="email" 
+                            placeholder="email"
+                            ref={emailRef}
+                             name='email' 
+                             className="input input-bordered" 
+                             required />
                         </div>
                         <div className="form-control">
                             <label className="label">
