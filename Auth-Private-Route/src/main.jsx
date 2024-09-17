@@ -10,6 +10,8 @@ import Root from './COMPO/ROOT/Root';
 import Home from './COMPO/HOME/Home';
 import Login from './COMPO/LOGIN/Login';
 import Register from './COMPO/REG/Register';
+import AuthProvider from './COMPO/PROVIDER/AuthProvider';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,13 +28,19 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>,
-      }
+      },
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<RouterProvider router={router} />
+  
+  <AuthProvider>
+
+  <RouterProvider router={router} />
+    
+    </AuthProvider>   
+    
   </StrictMode>,
 )
