@@ -4,14 +4,14 @@ import  { Children, createContext } from 'react';
 
 export  const AuthContex = createContext(null);
 
-const AuthProvider = ({Children}) => {
+const AuthProvider = ({children}) => {
 
     const Authinfo = { name: 'shoeb yo sikder pappu'}
 
     return (
         <AuthContex.Provider value={Authinfo}>
 
-            {Children}
+            {children}
             
         </AuthContex.Provider>
     );
