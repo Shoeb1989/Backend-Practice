@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../PROVIDER/AuthProvider';
 
 const Login = () => {
 
     const { SignInUser } = useContext(AuthContex)
+
+    const navigate = useNavigate();
 
 
     const handleLogin = e => {
@@ -17,6 +19,8 @@ const Login = () => {
         SignInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                e.target.reset();  // for reset the field in from
+                 navigate('/')
             })
             .catch(error => {
                 console.error(error);

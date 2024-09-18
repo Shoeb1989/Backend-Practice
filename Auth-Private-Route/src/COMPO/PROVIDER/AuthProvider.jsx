@@ -8,6 +8,7 @@ export  const AuthContex = createContext(null);
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
   const createUser = (email, password) => {
@@ -16,12 +17,14 @@ const AuthProvider = ({children}) => {
 
 
   const SignInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
   }
    
 
 
   const logOut = () => {
+    setLoading(true)
     return signOut(auth);
 }
 
@@ -29,6 +32,7 @@ const AuthProvider = ({children}) => {
 
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser);
+        setLoading(false);
         console.log('observing current user inside effer', currentUser)
     });
 
@@ -41,7 +45,7 @@ const AuthProvider = ({children}) => {
 
 
 
-    const Authinfo = {user, createUser, SignInUser, logOut}
+    const Authinfo =  {user, loading, createUser, SignInUser,  logOut}
 
    
     return (

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../PROVIDER/AuthProvider';
 
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContex);
+    const navigateREG = useNavigate();
     
 
 
@@ -21,6 +22,8 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             console.log(result.user)
+            e.target.reset();  // for reset the field in from
+            navigateREG('/login')
         })
         .catch(error => {
             console.error(error);

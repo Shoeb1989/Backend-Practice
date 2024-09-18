@@ -15,9 +15,22 @@ const Navbar = () => {
 
   const NavLinks = <>
     <li><NavLink to='/'  >Home</NavLink></li>
-    <li><NavLink to='/login'  >Login</NavLink></li>
-    <li><NavLink to='/register'  >Register</NavLink></li>
-    <li><NavLink to='/orders'  >Orders</NavLink></li>
+    
+  
+    {
+      !user && <>
+
+        <li><NavLink to='/register'  >Register</NavLink></li>
+        <li><NavLink to='/login'  >Login</NavLink></li>
+      </>
+    }
+
+    {user && <>
+      <li><NavLink to='/orders'  >Orders</NavLink></li>
+      <li><NavLink to='/profile'  >Profile</NavLink></li>
+      <li><NavLink to='/dashboard'  >Dashboard</NavLink></li>
+    </>
+    }
 
   </>
 
@@ -63,7 +76,7 @@ const Navbar = () => {
             <a onClick={handleLogOut} className="btn btn-sm">Sign out</a>
           </>
             : <Link to='/login'>
-            <button className="btn btn-sm">Login</button>
+              <button className="btn btn-sm">Login</button>
             </Link>
         }
 

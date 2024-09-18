@@ -13,6 +13,9 @@ import Register from './COMPO/REG/Register';
 import AuthProvider from './COMPO/PROVIDER/AuthProvider';
 import Orders from './COMPO/Orders/Orders';
 import PrivateRoute from './COMPO/PrivateRoute/PrivateRoute';
+import Profile from './COMPO/Profile';
+import { element } from 'prop-types';
+import Dashboard from './COMPO/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,15 @@ const router = createBrowserRouter([
       {
         path:'/orders',
         element:<PrivateRoute> <Orders></Orders> </PrivateRoute>,
+      },
+      {
+        path:'/profile',
+        element: <PrivateRoute> <Profile></Profile>  </PrivateRoute>
+      },
+
+      {
+        path:'/dashboard',
+        element:<PrivateRoute> <Dashboard></Dashboard> </PrivateRoute>,
       },
     ]
   },
