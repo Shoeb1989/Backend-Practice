@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../PROVIDER/AuthProvider';
 
 const Register = () => {
+
+    const authinfo = useContext(AuthContex);
+    console.log(authinfo);
 
 
     const handleRegister = e => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.login(email, password)
+
+
+        // in auth provider export create user
+
+
+
+
+
+
        }
 
 
