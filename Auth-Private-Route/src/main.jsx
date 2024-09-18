@@ -12,6 +12,7 @@ import Login from './COMPO/LOGIN/Login';
 import Register from './COMPO/REG/Register';
 import AuthProvider from './COMPO/PROVIDER/AuthProvider';
 import Orders from './COMPO/Orders/Orders';
+import PrivateRoute from './COMPO/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
 
       {
         path:'/orders',
-        element:<Orders></Orders>,
+        element:<PrivateRoute> <Orders></Orders> </PrivateRoute>,
       },
     ]
   },
