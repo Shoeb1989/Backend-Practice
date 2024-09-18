@@ -11,6 +11,7 @@ import Home from './COMPO/HOME/Home';
 import Login from './COMPO/LOGIN/Login';
 import Register from './COMPO/REG/Register';
 import AuthProvider from './COMPO/PROVIDER/AuthProvider';
+import Orders from './COMPO/Orders/Orders';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>,
+      },
+
+      {
+        path:'/orders',
+        element:<Orders></Orders>,
       },
     ]
   },

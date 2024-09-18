@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import  { Children, createContext, useState } from 'react';
+import  { Children, createContext, useEffect, useState } from 'react';
 import auth from '../../Firebase/Firebase.config';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export  const AuthContex = createContext(null);
 
@@ -15,8 +15,33 @@ const AuthProvider = ({children}) => {
   }
 
 
+  const SignInUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+   
 
-    const Authinfo = {user, createUser}
+
+  const logOut = () => {
+    return signOut(auth);
+}
+
+  useEffect( () => {
+
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+        setUser(currentUser);
+        console.log('observing current user inside effer', currentUser)
+    });
+
+    return () => {
+        unSubscribe();
+    } 
+
+  }, [])
+
+
+
+
+    const Authinfo = {user, createUser, SignInUser, logOut}
 
    
     return (
@@ -31,7 +56,7 @@ const AuthProvider = ({children}) => {
 export default AuthProvider;
 
 AuthProvider.propTypes = {
-    Children: PropTypes.node
+    children: PropTypes.node
 }
 
 
