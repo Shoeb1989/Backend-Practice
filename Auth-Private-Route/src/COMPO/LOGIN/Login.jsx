@@ -4,7 +4,7 @@ import { AuthContex } from '../PROVIDER/AuthProvider';
 
 const Login = () => {
 
-    const { SignInUser } = useContext(AuthContex)
+    const { SignInUser, signInWithGoogle } = useContext(AuthContex)
 
     const navigate = useNavigate();
 
@@ -27,8 +27,22 @@ const Login = () => {
             })
 
 
+            
+            
+            
+        }
+        
+        const handlegooglesignin = () => {
+          signInWithGoogle()
+          .then(result =>{
+            console.log(result.user)
+          })
+          .catch(error => {
+            console.error(error);
+          })
+        }
 
-    }
+
 
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -60,10 +74,16 @@ const Login = () => {
                         </div>
                     </form>
                     <p>New here ? Please <Link to="/register" ><button className="btn btn-link">Register</button></Link> </p>
+
+                    <p>
+                    <button onClick={handlegooglesignin} className="btn btn-link">Google</button>
+                    </p>
                 </div>
+            
             </div>
         </div>
+        
     );
 };
-
+ 
 export default Login;
