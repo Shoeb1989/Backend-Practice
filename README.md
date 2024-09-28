@@ -1,8 +1,9 @@
-# React + Vite
+## Firebase hosting set up complete issue 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ - [https://dev.to/chayti/firebase-hosting-setup-complete-issue-43c](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Firebase project limit increase: 
+
+ - [https://dev.to/chayti/increasing-firebase-project-limit-5fei](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+
