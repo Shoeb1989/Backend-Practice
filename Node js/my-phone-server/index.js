@@ -4,7 +4,7 @@ const port = 5000;
 
 app.get('/', (req, res) => {
 
-    res.send('my phone info commming soon')
+    res.send('my phone ola info commming soon')
 
 })
 
