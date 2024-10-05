@@ -22,6 +22,10 @@ app.get('/', (req, res) =>  {
 app.post('/users', (req, res) =>  {   
     console.log('post api hitting'); 
     console.log(req.body);
+    const Newuser = req.body;
+    Newuser.id = users.length + 1;
+    users.push(Newuser);
+    res.send(Newuser);
 })
 
 app.get('/users', (req, res) =>  {
