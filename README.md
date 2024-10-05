@@ -14,10 +14,16 @@
 ## Node JS -
  
 · Open source
+
 · Cross platform
+
 . JS runtime environment
+
 . Allows server side scripting
+
 · Single threaded, Non-blocking
+
 . Capable of asynchronous I/O
+
 . Has event-driven architecture
 
