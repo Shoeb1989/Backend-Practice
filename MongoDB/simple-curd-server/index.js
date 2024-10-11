@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000;
  
 // middleware 
 app.use(cors());
-app.use(express.json); // for post value
+app.use(express.json()); // for post value
 
 
 app.get('/', (req, res) => {
